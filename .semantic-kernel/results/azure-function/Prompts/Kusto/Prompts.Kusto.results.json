@@ -1,0 +1,141 @@
+{
+    "version": "1.0",
+    "skillName": "Prompts",
+    "functionName": "Kusto",
+    "description": "Kustoクエリを生成します。",
+    "filePath": "azure-function\\Prompts\\Kusto\\skprompt.txt",
+    "results": [
+        {
+            "completionConfig": {
+                "label": "gpt-4",
+                "aiService": "AzureOpenAI",
+                "deploymentOrModelId": "gpt-4",
+                "endpoint": "https://tomokusabaestus.openai.azure.com/",
+                "useCustomEndpoint": false,
+                "endpointType": "chat-completion",
+                "chatSystemMessage": "You are an AI assistant that helps people find information."
+            },
+            "requestSettings": {
+                "temperature": 0,
+                "topP": 0,
+                "presencePenalty": 0,
+                "frequencyPenalty": 0,
+                "maxTokens": 2000,
+                "stopSequences": []
+            },
+            "variables": [
+                {
+                    "key": "input",
+                    "value": "Application Insightsでページービューを知りたい"
+                }
+            ],
+            "output": {
+                "prompt": "このチャットボットはKustoクエリのみを答えることができます。\nユーザの入力によって、Kustoクエリを生成しその内容を説明します。\n\n\n----\n# 生成例\n\n## 例1\n### 入力\n\nRDP接続がある通信端末の一覧表を表示してください。\n\n### 出力\n\n```\nDeviceNetworkEvents\n| where ActionType == \"ConnectionSuccess\"\n| where RemotePort == 3389\n| summarize count() by DeviceName\n```\n\n上記のクエリは、RDP接続がある通信端末の一覧表を表示するクエリです。\n\n\n+++++\n\nApplication Insightsでページービューを知りたい\n+++++\n",
+                "durationInMilliseconds": 6366.6799,
+                "inputTokens": 187,
+                "outputTokens": 65,
+                "result": "```\npageViews\n| summarize count() by name\n```\n\n上記のクエリは、Application Insightsでページビュー数を取得するためのクエリです。各ページ名（name）ごとにページビュー数を集計します。",
+                "chatCompletionResult": "```\npageViews\n| summarize count() by name\n```\n\n上記のクエリは、Application Insightsでページビュー数を取得するためのクエリです。各ページ名（name）ごとにページビュー数を集計します。"
+            }
+        },
+        {
+            "completionConfig": {
+                "label": "gpt-4",
+                "aiService": "AzureOpenAI",
+                "deploymentOrModelId": "gpt-4",
+                "endpoint": "https://tomokusabaestus.openai.azure.com/",
+                "useCustomEndpoint": false,
+                "endpointType": "chat-completion",
+                "chatSystemMessage": "You are an AI assistant that helps people find information."
+            },
+            "requestSettings": {
+                "temperature": 0,
+                "topP": 0,
+                "presencePenalty": 0,
+                "frequencyPenalty": 0,
+                "maxTokens": 2000,
+                "stopSequences": []
+            },
+            "variables": [
+                {
+                    "key": "input",
+                    "value": "サーバーのメモリ使用量を知りたい"
+                }
+            ],
+            "output": {
+                "prompt": "このチャットボットはKustoクエリのみを答えることができます。\nユーザの入力によって、Kustoクエリを生成しその内容を説明します。\n\n\n----\n# 生成例\n\n## 例1\n### 入力\n\nRDP接続がある通信端末の一覧表を表示してください。\n\n### 出力\n\n```\nDeviceNetworkEvents\n| where ActionType == \"ConnectionSuccess\"\n| where RemotePort == 3389\n| summarize count() by DeviceName\n```\n\n上記のクエリは、RDP接続がある通信端末の一覧表を表示するクエリです。\n\n\n+++++\n\nサーバーのメモリ使用量を知りたい\n+++++\n",
+                "durationInMilliseconds": 4831.5267,
+                "inputTokens": 189,
+                "outputTokens": 62,
+                "result": "```\nPerf\n| where CounterName == \"Available MBytes\"\n| summarize avg(CounterValue) by Computer\n```\n\n上記のクエリは、各サーバーの平均メモリ使用量（MB）を表示するクエリです。",
+                "chatCompletionResult": "```\nPerf\n| where CounterName == \"Available MBytes\"\n| summarize avg(CounterValue) by Computer\n```\n\n上記のクエリは、各サーバーの平均メモリ使用量（MB）を表示するクエリです。"
+            }
+        },
+        {
+            "completionConfig": {
+                "label": "gpt-4",
+                "aiService": "AzureOpenAI",
+                "deploymentOrModelId": "gpt-4",
+                "endpoint": "https://tomokusabaestus.openai.azure.com/",
+                "useCustomEndpoint": false,
+                "endpointType": "chat-completion",
+                "chatSystemMessage": "You are an AI assistant that helps people find information."
+            },
+            "requestSettings": {
+                "temperature": 0,
+                "topP": 0,
+                "presencePenalty": 0,
+                "frequencyPenalty": 0,
+                "maxTokens": 2000,
+                "stopSequences": []
+            },
+            "variables": [
+                {
+                    "key": "input",
+                    "value": "例外が発生しているアプリケーションの一覧を表示するクエリ"
+                }
+            ],
+            "output": {
+                "prompt": "このチャットボットはKustoクエリのみを答えることができます。\nユーザの入力によって、Kustoクエリを生成しその内容を説明します。\n\n\n----\n# 生成例\n\n## 例1\n### 入力\n\nRDP接続がある通信端末の一覧表を表示してください。\n\n### 出力\n\n```\nDeviceNetworkEvents\n| where ActionType == \"ConnectionSuccess\"\n| where RemotePort == 3389\n| summarize count() by DeviceName\n```\n\n上記のクエリは、RDP接続がある通信端末の一覧表を表示するクエリです。\n\n\n+++++\n\n例外が発生しているアプリケーションの一覧を表示するクエリ\n+++++\n",
+                "durationInMilliseconds": 6178.3619,
+                "inputTokens": 201,
+                "outputTokens": 60,
+                "result": "```\nAppEvents\n| where EventType == \"Exception\"\n| summarize count() by AppName\n```\n\n上記のクエリは、例外が発生しているアプリケーションの一覧を表示するクエリです。",
+                "chatCompletionResult": "```\nAppEvents\n| where EventType == \"Exception\"\n| summarize count() by AppName\n```\n\n上記のクエリは、例外が発生しているアプリケーションの一覧を表示するクエリです。"
+            }
+        },
+        {
+            "completionConfig": {
+                "label": "gpt-4",
+                "aiService": "AzureOpenAI",
+                "deploymentOrModelId": "gpt-4",
+                "endpoint": "https://tomokusabaestus.openai.azure.com/",
+                "useCustomEndpoint": false,
+                "endpointType": "chat-completion",
+                "chatSystemMessage": "You are an AI assistant that helps people find information."
+            },
+            "requestSettings": {
+                "temperature": 0,
+                "topP": 0,
+                "presencePenalty": 0,
+                "frequencyPenalty": 0,
+                "maxTokens": 2000,
+                "stopSequences": []
+            },
+            "variables": [
+                {
+                    "key": "input",
+                    "value": "HTTP接続のある端末の一覧表を表示してください"
+                }
+            ],
+            "output": {
+                "prompt": "このチャットボットはKustoクエリのみを答えることができます。\nユーザの入力によって、Kustoクエリを生成しその内容を説明します。\n\n\n----\n# 生成例\n\n## 例1\n### 入力\n\nRDP接続がある通信端末の一覧表を表示してください。\n\n### 出力\n\n```\nDeviceNetworkEvents\n| where ActionType == \"ConnectionSuccess\"\n| where RemotePort == 3389\n| summarize count() by DeviceName\n```\n\n上記のクエリは、RDP接続がある通信端末の一覧表を表示するクエリです。\n\n\n+++++\n\nHTTP接続のある端末の一覧表を表示してください\n+++++\n",
+                "durationInMilliseconds": 8501.9928,
+                "inputTokens": 192,
+                "outputTokens": 64,
+                "result": "```\nDeviceNetworkEvents\n| where ActionType == \"ConnectionSuccess\"\n| where Protocol == \"HTTP\"\n| summarize count() by DeviceName\n```\n\n上記のクエリは、HTTP接続がある通信端末の一覧表を表示するクエリです。",
+                "chatCompletionResult": "```\nDeviceNetworkEvents\n| where ActionType == \"ConnectionSuccess\"\n| where Protocol == \"HTTP\"\n| summarize count() by DeviceName\n```\n\n上記のクエリは、HTTP接続がある通信端末の一覧表を表示するクエリです。"
+            }
+        }
+    ]
+}
